@@ -1,0 +1,69 @@
+﻿@model Project_TestTechnique.Models.Candidat
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Firstname" class="control-label"></label>
+                <input asp-for="Firstname" class="form-control" />
+                <span asp-validation-for="Firstname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ScooleLevel" class="control-label"></label>
+                <select asp-for="ScooleLevel" class="form-control">
+                    <option value="">Sélect Niveau d'étude </option>
+                    <option value="Bac">Bac</option>
+                    <option value="Bac +2">Bac +2</option>
+                    <option value="Bac +3">Bac +3</option>
+                    <option value="Bac +4">Bac +4</option>
+                    <option value="Bac +5">Bac +5</option>
+                </select>
+                <span asp-validation-for="ScooleLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Experience" class="control-label"></label>
+                <input type="number" asp-for="Experience" class="form-control" />
+                <span asp-validation-for="Experience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastJob" class="control-label"></label>
+                <input asp-for="LastJob" class="form-control" />
+                <span asp-validation-for="LastJob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CandidatCv" class="control-label"></label>
+                <input type="file" id="CandidatCv" asp-for="CandidatCv" class="form-control" multiple/>
+                <span asp-validation-for="CandidatCv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Envoie" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
